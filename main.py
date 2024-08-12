@@ -1,3 +1,7 @@
+from tkinter import *
+from tkinter import ttk
+import tkinter as tk
+
 def calulate_finances(monthly_income: float, tax_rate: float, currency: str) -> None:
     
     monthly_tax: float = monthly_income * (tax_rate / 100)
@@ -27,6 +31,25 @@ def main() -> None:
 
 #   This will prevent script from running if executed from another file, will work only if executed in this file
 
-if __name__ ==  '__main__':
-    main()
+#if __name__ ==  '__main__':
+#    main()
 
+#   Begining of TKinter Window
+
+main_window = tk.Tk()
+main_window.title('Financial Calculator')
+main_window.geometry('520x300')
+main_window.resizable(False,False)
+
+main_window.grid_rowconfigure(0, weight=1)
+main_window.grid_columnconfigure(0, weight=1)
+
+first_line_label = tk.Label(main_window, text='Welcome to your personal financial calulator', bg='black')
+first_line_label.grid(row=0, column=0, padx=10, pady=10)
+first_line_button1 = tk.Button(main_window, text='Take me to calculator')
+first_line_button1.grid(row=1, column=0, padx=10, pady=10)
+#first_line_button2 = tk.Button(main_window, text='Take me to calculator')
+#first_line_button2.grid(row=1, column=2, padx=10, pady=10)
+
+
+main_window.mainloop() #   creates visual window
