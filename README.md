@@ -11,6 +11,7 @@ Soo I've made a list what to do or what try to do.
 
 - [ ] Use any framework to build a GUI which will contain:
      - [x] Menu
+          - [ ] Exit button 
      - [x] Output Window
           - [x] Possibility of returning to menu
      - [ ] Make the GUI look good
