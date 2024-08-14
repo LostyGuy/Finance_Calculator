@@ -28,11 +28,6 @@ def main() -> None:
 
     try:
         monthly_income = float(monthly_income1.get())
-    except:
-       messagebox.showerror('Data type error', 'Wrong data given!')
-       pass
-
-    try:
         tax_rate = float(tax_rate1.get())
     except:
        messagebox.showerror('Data type error', 'Wrong data given!')
@@ -45,22 +40,33 @@ def main() -> None:
     calulate_finances(monthly_income, tax_rate, currency = "$")
 
     main_window.withdraw()
-    main_window.deiconify()
+    #main_window.deiconify()
 
-    label1 = Label(calc_window, text=text1)
+    frame_calc_1 = Frame(calc_window, relief=RAISED, bg='lightgrey')
+    frame_calc_1.pack()
+    frame_calc_2 = Frame(calc_window, relief=RAISED, bg='lightgrey')
+    frame_calc_2.pack()
+    frame_calc_3 = Frame(calc_window, relief=RAISED, bg='lightgrey')
+    frame_calc_3.pack()
+
+    label1 = Label(frame_calc_2, text=text1)
     label1.pack()
-    label2 = Label(calc_window, text=text2)
+    label2 = Label(frame_calc_2, text=text2)
     label2.pack()
-    label3 = Label(calc_window, text=text3)
+    label3 = Label(frame_calc_2, text=text3)
     label3.pack()
-    label4 = Label(calc_window, text=text4)
+    label4 = Label(frame_calc_2, text=text4)
     label4.pack()
-    label5 = Label(calc_window, text=text5)
+    label5 = Label(frame_calc_2, text=text5)
     label5.pack()
-    label6 = Label(calc_window, text=text6)
+    label6 = Label(frame_calc_2, text=text6)
     label6.pack()
-    label7 = Label(calc_window, text=text7)
+    label7 = Label(frame_calc_2, text=text7)
     label7.pack()
+
+    button1 = Button(frame_calc_3, text='Go back', relief=RAISED, bg='lightgray', command=lambda: [main_window.deiconify(), calc_window.withdraw()])
+    button1.pack(side=LEFT)
+
 
 #   This will prevent script from running if executed from another file, will work only if executed in this file
 

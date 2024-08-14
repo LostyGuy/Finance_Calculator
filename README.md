@@ -1,1 +1,1 @@
-# Finance_Calc
+# Finance_Calculator
