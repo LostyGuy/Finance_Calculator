@@ -1,28 +1,4 @@
-from tkinter import *
-from tkinter import ttk #styles
-import tkinter as tk
-from tkinter import messagebox
-
-def calulate_finances(monthly_income: float, tax_rate: float, currency: str) -> None:
-    
-    monthly_tax: float = monthly_income * (tax_rate / 100)
-    monthly_net_income: float = monthly_income - monthly_tax
-    yearly_salary: float = monthly_income * 12
-    yearly_tax: float = monthly_tax * 12
-    yearly_net_income: float = yearly_salary - yearly_tax
-
-#   |,.2f| Will round the number to two places after point
-    global text1,text2,text3,text4,text5,text5,text6,text7
-
-    text1 = (f'Montly income: {currency} {monthly_income: ,.2f}')
-    text2 = (f'Tax rate: {tax_rate:,.0f}%')
-    text3 = (f'Monthly tax: {currency} {monthly_tax:,.2f}')
-    text4 = (f'Monthly net income: {currency} {monthly_net_income:,.2f}')
-    text5 = (f'Yearly salary: {currency} {yearly_salary:,.2f}')
-    text6 = (f'Yearly tax to pay: {currency} {yearly_tax:,.2f}')
-    text7 = (f'Yearly net income: {currency} {yearly_net_income:,.2f}')
-    print('Output has been sent')
-    
+from modules import *
 
 def main() -> None:
 
@@ -43,11 +19,11 @@ def main() -> None:
     #main_window.deiconify()
 
     frame_calc_1 = Frame(calc_window, relief=RAISED, bg='lightgrey')
-    frame_calc_1.pack()
+    frame_calc_1.pack(fill='x')
     frame_calc_2 = Frame(calc_window, relief=RAISED, bg='lightgrey')
-    frame_calc_2.pack()
+    frame_calc_2.pack(fill='x')
     frame_calc_3 = Frame(calc_window, relief=RAISED, bg='lightgrey')
-    frame_calc_3.pack()
+    frame_calc_3.pack(fill='x')
 
     label1 = Label(frame_calc_2, text=text1)
     label1.pack()
@@ -65,7 +41,7 @@ def main() -> None:
     label7.pack()
 
     button1 = Button(frame_calc_3, text='Go back', relief=RAISED, bg='lightgray', command=lambda: [main_window.deiconify(), calc_window.withdraw()])
-    button1.pack(side=LEFT)
+    button1.pack(side=RIGHT, anchor=S)
 
 
 #   This will prevent script from running if executed from another file, will work only if executed in this file
