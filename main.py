@@ -1,53 +1,5 @@
 from modules import *
 
-def result_window() -> None:
-
-    try:
-        monthly_income = float(monthly_income1.get())
-        tax_rate = float(tax_rate1.get())
-    except ValueError:
-       messagebox.showerror('Data type error', 'Please enter only numbers!')
-       return None
-    finally:
-       if monthly_income < 100:
-          messagebox.showerror('Invalid Input', 'Make sure your salary is valid and above 100')
-          return None
-
-    calc_window = Toplevel(main_window)
-    calc_window.geometry('520x400')
-    calc_window.resizable(False,False)
-    
-    text1, text2, text3, text4, text5, text6, text7 = calculate_finances(monthly_income, tax_rate, currency="$")
-
-    main_window.withdraw()
-    #main_window.deiconify()
-
-    frame_calc_1 = Frame(calc_window, relief=RAISED, bg='lightgrey')
-    frame_calc_1.pack(fill='x')
-    frame_calc_2 = Frame(calc_window, relief=RAISED, bg='lightgrey')
-    frame_calc_2.pack(fill='x')
-    frame_calc_3 = Frame(calc_window, relief=RAISED, bg='lightgrey')
-    frame_calc_3.pack(fill='x')
-
-    label1 = Label(frame_calc_2, text=text1)
-    label1.pack()
-    label2 = Label(frame_calc_2, text=text2)
-    label2.pack()
-    label3 = Label(frame_calc_2, text=text3)
-    label3.pack()
-    label4 = Label(frame_calc_2, text=text4)
-    label4.pack()
-    label5 = Label(frame_calc_2, text=text5)
-    label5.pack()
-    label6 = Label(frame_calc_2, text=text6)
-    label6.pack()
-    label7 = Label(frame_calc_2, text=text7)
-    label7.pack()
-
-    button1 = Button(frame_calc_3, text='Go back', relief=RAISED, bg='lightgray', command=lambda: [main_window.deiconify(), calc_window.withdraw()])
-    button1.pack(side=RIGHT, anchor=S)
-
-
 #   Begining of TKinter Window  #
 def main() -> None:
    
@@ -106,17 +58,65 @@ def main() -> None:
    calc_start.config(font=('font', 10))
 
    guidance = Label(frame3, text='Introduction', bg='darkgrey', font='Arial')
-   guidance.pack(pady=[10,0])
+   guidance.pack(pady=[10,0], fill='x')
 
    guidance_description = Label(frame3, text='''
    1. In box with Monthly Salary please enter real or aproximate value to yor earning.
    2. In box with tax rate enter a number before the '%' corresponding with your state or country.
    3. After filling above boxes procced to calculation.
    ''', bg='darkgrey', font=('font', 9) )
-   guidance_description.pack()
+   guidance_description.pack(fill='x')
 
+   main_window.eval('tk::PlaceWindow . center')
    main_window.mainloop() #   creates visual window
    
+   
+def result_window() -> None:
+
+    try:
+        monthly_income = float(monthly_income1.get())
+        tax_rate = float(tax_rate1.get())
+        if monthly_income < 100:
+          messagebox.showerror('Invalid Input', 'Make sure your salary is valid and above 100')
+          return None
+    except ValueError:
+       messagebox.showerror('Data type error', 'Please enter only numbers!')
+       return None
+
+    calc_window = Toplevel(main_window)
+    calc_window.geometry('520x400')
+    calc_window.resizable(False,False)
+    
+    text1, text2, text3, text4, text5, text6, text7 = calculate_finances(monthly_income, tax_rate, currency="$")
+
+    main_window.withdraw()
+    #main_window.deiconify()
+
+    frame_calc_1 = Frame(calc_window, relief=RAISED, bg='lightgrey')
+    frame_calc_1.pack(fill='x')
+    frame_calc_2 = Frame(calc_window, relief=RAISED, bg='lightgrey')
+    frame_calc_2.pack(fill='x')
+    frame_calc_3 = Frame(calc_window, relief=RAISED, bg='lightgrey')
+    frame_calc_3.pack(fill='x')
+
+    label1 = Label(frame_calc_2, text=text1)
+    label1.pack()
+    label2 = Label(frame_calc_2, text=text2)
+    label2.pack()
+    label3 = Label(frame_calc_2, text=text3)
+    label3.pack()
+    label4 = Label(frame_calc_2, text=text4)
+    label4.pack()
+    label5 = Label(frame_calc_2, text=text5)
+    label5.pack()
+    label6 = Label(frame_calc_2, text=text6)
+    label6.pack()
+    label7 = Label(frame_calc_2, text=text7)
+    label7.pack()
+
+    button1 = Button(frame_calc_3, text='Go back', relief=RAISED, bg='lightgray', command=lambda: [main_window.deiconify(), calc_window.withdraw()])
+    button1.pack(side=RIGHT, anchor=S)
+
 #   This will prevent script from running if executed from another file, will work only if executed in this file
 
 if __name__ ==  '__main__':
