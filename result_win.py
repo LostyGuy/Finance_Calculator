@@ -9,6 +9,17 @@ def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_wi
     current_currency: str = currency.get()
 
     calc_window = Toplevel(main_window)
+
+    win_h = 400
+    win_w = 520
+    screen_w = calc_window.winfo_screenwidth()
+    screen_h = calc_window.winfo_screenheight()
+
+    x_cord = int((screen_w/2) - (win_w/2))
+    y_cord = int((screen_h/2) - (win_h/2))
+
+    calc_window.geometry("{}x{}+{}+{}".format(win_w, win_h, x_cord, y_cord))
+
     calc_window.geometry('520x400')
     calc_window.resizable(False,False)
     main_window.eval(f'tk::PlaceWindow {str(calc_window)} center')

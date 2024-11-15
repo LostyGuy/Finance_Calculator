@@ -6,7 +6,18 @@ def main() -> None:
 
    main_window = tk.Tk()
    main_window.title('Financial Calculator')
-   main_window.geometry('520x400')
+
+   win_h = 400
+   win_w = 520
+   screen_w = main_window.winfo_screenwidth()
+   screen_h = main_window.winfo_screenheight()
+
+   x_cord = int((screen_w/2) - (win_w/2))
+   y_cord = int((screen_h/2) - (win_h/2))
+
+   main_window.geometry("{}x{}+{}+{}".format(win_w, win_h, x_cord, y_cord))
+
+   #main_window.geometry('520x400')
    main_window.resizable(False,False)
 
    frame1 = Frame(main_window,relief=RAISED, name='header')
@@ -60,10 +71,16 @@ def main() -> None:
          if monthly_income < 100:
             messagebox.showerror('Invalid Input', 'Make sure your salary is valid and above 100')
             return None
-         elif tax_rate > 0 or tax_rate < 50 :
+         elif tax_rate < 0:
+            messagebox.showerror('Invalid Input','Make sure your tax rate is valid and within range from 0 to 50')
+            return None
+         elif tax_rate > 50:
             messagebox.showerror('Invalid Input','Make sure your tax rate is valid and within range from 0 to 50')
             return None
       except ValueError:
+         if tax_rate == None or monthly_income == None:
+            messagebox.showerror('Data type error', 'Use numbers only!')
+            return None
          if type(tax_rate) != int or type(tax_rate) != float:
             messagebox.showerror('Data type error', 'Please enter numbers only in tax rate box!')
             return None
