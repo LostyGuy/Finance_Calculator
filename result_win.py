@@ -1,5 +1,5 @@
 from modules import *
-from other_files import calculate_finances
+from other_modules import calculate_finances
 import main
 
 def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_window) -> None:
@@ -11,6 +11,7 @@ def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_wi
     calc_window = Toplevel(main_window)
     calc_window.geometry('520x400')
     calc_window.resizable(False,False)
+    main_window.eval(f'tk::PlaceWindow {str(calc_window)} center')
     
     text1, text2, text3, text4, text5, text6, text7 = calculate_finances(monthly_income, tax_rate, current_currency)
 

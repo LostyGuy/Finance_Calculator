@@ -1,11 +1,9 @@
 from modules import *
-from other_files import *
+from other_modules import *
 
 #   Begining of TKinter Window  #
 def main() -> None:
-   
-   #global main_window, monthly_income1, tax_rate1, currency
-   
+
    main_window = tk.Tk()
    main_window.title('Financial Calculator')
    main_window.geometry('520x400')
@@ -62,9 +60,15 @@ def main() -> None:
          if monthly_income < 100:
             messagebox.showerror('Invalid Input', 'Make sure your salary is valid and above 100')
             return None
+         elif tax_rate > 0 or tax_rate < 50 :
+            messagebox.showerror('Invalid Input','Make sure your tax rate is valid and within range from 0 to 50')
+            return None
       except ValueError:
-         messagebox.showerror('Data type error', 'Please enter only numbers!')
-         return None
+         if type(tax_rate) != int or type(tax_rate) != float:
+            messagebox.showerror('Data type error', 'Please enter numbers only in tax rate box!')
+            return None
+         elif type(monthly_income) != int or type(monthly_income) != float:
+            messagebox.showerror('Data type error', 'Please enter numbers only in income box!')
       else:
          result_window(monthly_income1, tax_rate1, currency, main_window)
 
