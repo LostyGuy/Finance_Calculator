@@ -3,7 +3,7 @@ from modules import *
 #   Begining of TKinter Window  #
 def main() -> None:
    
-   global main_window, monthly_income1, tax_rate1
+   global main_window, monthly_income1, tax_rate1, currency
    
    main_window = tk.Tk()
    main_window.title('Financial Calculator')
@@ -41,21 +41,27 @@ def main() -> None:
    title.pack(fill='x')
    title.config(font=('Font', 25))
 
-   monthly_income1 = Entry(frame2)
+   monthly_income1 = Entry(frame2, width=25, justify='center')
    monthly_income1.insert(0, 'Enter your monthly salary')
    monthly_income1.bind("<FocusIn>", on_entry_click1)
    monthly_income1.bind("<FocusOut>", on_focus_out1)
    monthly_income1.pack(pady=[10,0])
 
-   tax_rate1 = Entry(frame2)
+   tax_rate1 = Entry(frame2, width=25, justify='center')
    tax_rate1.insert(0, 'Enter your tax rate')
    tax_rate1.bind("<FocusIn>", on_entry_click2)
    tax_rate1.bind("<FocusOut>", on_focus_out2)
    tax_rate1.pack(pady=[0,10])
 
-   calc_start = Button(frame2, text='Take me to the Calculator',  command=result_window)
+   calc_start = Button(frame2, text='Take me to the Calculator',  command=result_window,)
    calc_start.pack()
    calc_start.config(font=('font', 10))
+   
+   currency_list : list = ['€','$','£','¥','zł']
+   currency = StringVar(frame2)
+   currency.set(currency_list[0])
+   Multi_Box = OptionMenu(frame2, currency, *currency_list)
+   Multi_Box.pack()
 
    guidance = Label(frame3, text='Introduction', bg='darkgrey', font='Arial')
    guidance.pack(pady=[10,0], fill='x')
@@ -76,6 +82,7 @@ def result_window() -> None:
     try:
         monthly_income = float(monthly_income1.get())
         tax_rate = float(tax_rate1.get())
+        current_currency = currency.get()
         if monthly_income < 100:
           messagebox.showerror('Invalid Input', 'Make sure your salary is valid and above 100')
           return None
@@ -87,7 +94,7 @@ def result_window() -> None:
     calc_window.geometry('520x400')
     calc_window.resizable(False,False)
     
-    text1, text2, text3, text4, text5, text6, text7 = calculate_finances(monthly_income, tax_rate, currency="$")
+    text1, text2, text3, text4, text5, text6, text7 = calculate_finances(monthly_income, tax_rate, current_currency)
 
     main_window.withdraw()
     #main_window.deiconify()
