@@ -20,7 +20,7 @@ Soo I've made a list what to do or what try to do.
 
 - [ ] Let the user add their own expenses like loan or subscription or anything like that
 
-- [ ] Make a currency menu and let the user decide which one to use
+- [X] Make a currency menu and let the user decide which one to use
 
 - [ ] **\(optional)** Create a simple database with login, password and history of past operations
 
