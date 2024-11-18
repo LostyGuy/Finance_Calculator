@@ -70,6 +70,9 @@ def main() -> None:
          if monthly_income < 100:
             messagebox.showerror('Invalid Input', 'Make sure your salary is valid and above 100')
             return None
+         elif monthly_income > 100_000_000:
+            messagebox.showerror('Invalid Input', "We don't support salaries greater then 1 milion")
+            return None
          elif tax_rate < 0:
             messagebox.showerror('Invalid Input','Make sure your tax rate is valid and within range from 0 to 50')
             return None
