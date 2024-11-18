@@ -1,5 +1,5 @@
 from modules import *
-from other_modules import *
+from other_modules import result_window
 
 #   Begining of TKinter Window  #
 def main() -> None:
@@ -17,7 +17,6 @@ def main() -> None:
 
    main_window.geometry("{}x{}+{}+{}".format(win_w, win_h, x_cord, y_cord))
 
-   #main_window.geometry('520x400')
    main_window.resizable(False,False)
 
    frame1 = Frame(main_window,relief=RAISED, name='header')
@@ -101,7 +100,6 @@ def main() -> None:
 
    guidance = Label(frame3, text='Introduction', bg='darkgrey', font='Arial')
    guidance.pack(pady=[10,0], fill='x')
-
    guidance_description = Label(frame3, text='''
    1. In box with Monthly Salary please enter real or aproximate value to yor earning.
    2. In box with tax rate enter a number before the '%' corresponding with your state or country.
@@ -111,6 +109,7 @@ def main() -> None:
    
    main_window.eval('tk::PlaceWindow . center')
    main_window.mainloop() #   creates visual window
+
 
 #   This will prevent script from running if executed from another file, will work only if executed in this file
 

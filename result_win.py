@@ -1,6 +1,5 @@
 from modules import *
 from other_modules import calculate_finances
-import main
 
 def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_window) -> None:
 
@@ -9,7 +8,13 @@ def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_wi
     current_currency: str = currency.get()
 
     calc_window = Toplevel(main_window)
-
+    
+    def on_close():
+        if messagebox.askokcancel("Quit", "Do you want to leave?"):
+            exit()
+    
+    calc_window.protocol("WM_DELETE_WINDOW",on_close)
+    
     win_h = 400
     win_w = 520
     screen_w = calc_window.winfo_screenwidth()
@@ -25,9 +30,8 @@ def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_wi
     main_window.eval(f'tk::PlaceWindow {str(calc_window)} center')
     
     text1, text2, text3, text4, text5, text6, text7 = calculate_finances(monthly_income, tax_rate, current_currency)
-
+    
     main_window.withdraw()
-    #main_window.deiconify()
 
     frame_calc_1 = Frame(calc_window, relief=RAISED, bg='lightgrey')
     frame_calc_1.pack(fill='x')
@@ -39,7 +43,7 @@ def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_wi
     label1 = Label(frame_calc_2, text=text1)
     label1.pack()
     label2 = Label(frame_calc_2, text=text2)
-    label2.pack()
+    label2.pack()   
     label3 = Label(frame_calc_2, text=text3)
     label3.pack()
     label4 = Label(frame_calc_2, text=text4)
