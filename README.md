@@ -28,7 +28,7 @@ Soo I've made a list what to do or what try to do.
 		  - [ ] Loan
 
 - [ ] **\(optional)** Create a simple database with login, password and history of past operations
-	  - [ ] You'll be given a template of database and short instruction on how to connect to your database
+	- [ ] You'll be given a template of database and short instruction on how to connect to your database
 
 ### Framework I'm working with is Tkinter
 ### Database will be runned on Xampp
