@@ -18,7 +18,7 @@ Soo I've made a list what to do or what try to do.
      - [ ] Make the GUI look good
 		- [ ] Center elements within windows
 		- [ ] Choose eye-friendly colors
-		- [ ] Set the size of text big enough for larger resolutions ex. 1080x720+
+		- [ ] Set the size of text big enough for larger resolutions ex. 1920x1080+
 
 - [X] Make sure that app won't crash whenever data type don't match the right one
 
