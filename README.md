@@ -15,7 +15,7 @@ Soo I've made a list what to do or what try to do.
           - [X] Exit button 
      - [X] Output Window
           - [X] Possibility of returning to menu
-     - [ ] Make the GUI look good
+     - [ ] Make the GUI look like not from 1990
 		- [ ] Center elements within windows
 		- [ ] Choose eye-friendly colors
 		- [ ] Set the size of text big enough for larger resolutions ex. 1920x1080+
@@ -24,13 +24,13 @@ Soo I've made a list what to do or what try to do.
 
 - [ ] Let the user add their own expenses like loan or subscription 
 	 - [ ] Up to 2 custom positions
-	  	  - [ ] Subscripton
-		  - [ ] Loan
+		- [ ] Subscripton
+		- [ ] Loan
 
 - [ ] **\(optional)** Create a simple database with login, password and history of past operations
 	- [ ] You'll be given a template of database and short instruction on how to connect to your database
 
 ### Framework I'm working with is Tkinter
-### Database will be runned on Xampp
+### DBMS is SQLAlchemy within FastAPI
 
 My project database is available at www.indently.io thanks to **Federico Azzurro**
