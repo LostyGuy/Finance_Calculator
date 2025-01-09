@@ -14,7 +14,7 @@ Soo I've made a list what to do or what try to do.
           - [X] Exit button 
      - [X] Output Window
           - [X] Possibility of returning to menu
-     - [ ] Make the GUI look good
+     - [ ] Make the GUI look like not from 1990
 
 - [X] Make sure that app won't crash whenever data type don't match the right one
 
@@ -25,5 +25,6 @@ Soo I've made a list what to do or what try to do.
 - [ ] **\(optional)** Create a simple database with login, password and history of past operations
 
 ### Framework I'm working with is Tkinter
+### DBMS is sqlalchemy within FastAPI
 
 My project database is available at www.indently.io thanks to **Federico Azzurro**
