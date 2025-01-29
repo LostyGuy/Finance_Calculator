@@ -2,15 +2,13 @@
 
 ## Above calculator is the result of my practice.
 Base task I started with was getting some input about tax rate and monthly income 
-then outputting monthly and yearly tax to pay and how much money will you finally acquire.
+then outputting monthly and yearly tax to pay and how much money will you finally acquire. But that was too easy soo I've managed to expand the requirement a bit. You'll find out how much you spent on taxes per month and year. How much does your subscriptions and loans (if you have one) takes from your account. Wide choice of currencies to choose.
 
-That would be too easy assuming that learning is based on trying new things and getting past them.
-Soo I've made a list what to do or what try to do.
-
-## Here's the list:
+## Check List:
 
 - [X] Use any framework to build a GUI which will contain:
      - [X] Menu
+	 	  - [X] Currency Menu
           - [X] Exit button 
      - [X] Output Window
           - [X] Possibility of returning to menu

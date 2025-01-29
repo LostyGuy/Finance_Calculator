@@ -102,7 +102,7 @@ def main() -> None:
    
    def checkval() -> None:
       try:
-         monthly_income= float(monthly_income1.get())
+         monthly_income: float = float(monthly_income1.get())
          tax_rate: float = float(tax_rate1.get())
          current_currency: str = currency.get()
          try:
@@ -120,7 +120,7 @@ def main() -> None:
          
          if monthly_income < 100:
             messagebox.showerror('Invalid Input', 'Make sure your salary is valid or above 100')
-            return
+            return 
          elif monthly_income > 100_000_000:
             messagebox.showerror('Invalid Input', "We don't support salaries greater than 100 million")
             return
@@ -128,16 +128,21 @@ def main() -> None:
             messagebox.showerror('Invalid Input', 'Make sure your tax rate is valid and within range from 0 to 50')
             return
          
-         
-      except ValueError as e:
-         print (e)
-         messagebox.showerror('Data type error', 'Please enter valid numbers in the input boxes!')
-         return None
-      
-      else:
          result_window(monthly_income, tax_rate, current_currency, main_window, monthly_sub_fee, monthly_loan_fee)
+         
+      except ValueError:
+          try:
+             monthly_income: float = float(monthly_income1.get())
+          except ValueError:
+            messagebox.showerror('Invalid Input', 'Make sure your salary is a number')
+            return
+          try:
+             tax_rate: float = float(tax_rate1.get())
+          except ValueError:
+            messagebox.showerror('Invalid Input', 'Make sure your tax rate is a number')
+            return
       
-   calc_start = Button(frame2, text='Take me to the Calculator',  command=checkval)
+   calc_start = Button(frame2, text='Calculate',  command=checkval)
    calc_start.pack()
    calc_start.config(font=('font', 12))
    
