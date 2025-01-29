@@ -1,4 +1,4 @@
-def calculate_finances(monthly_income1: float, tax_rate1: float, currency: str, monthly_sub_fee:int, monthly_loan_fee: int) -> float:
+def calculate_finances(monthly_income1: float, tax_rate1: float, currency: str, monthly_sub_fee: float, monthly_loan_fee: float) -> float:
     
     monthly_tax: float = monthly_income1 * (tax_rate1 / 100)
     monthly_net_income: float = monthly_income1 - monthly_tax

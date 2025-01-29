@@ -95,14 +95,28 @@ def main() -> None:
    monthly_loan_fee1.bind("<FocusOut>", on_focus_out4)
    monthly_loan_fee1.pack(pady=[0,10])
    monthly_loan_fee1.config(font=('Font', 15))
+
+   opt = Label(frame4, text='⬆ Optional Choice ⬆', bg='darkgrey', font='Arial')
+   opt.pack(pady=[10,0])
+   opt.config(font=('Font', 15))
    
    def checkval() -> None:
       try:
-         monthly_income: float = float(monthly_income1.get())
+         monthly_income= float(monthly_income1.get())
          tax_rate: float = float(tax_rate1.get())
          current_currency: str = currency.get()
-         monthly_sub_fee: float = float(monthly_sub_fee1.get())
-         monthly_loan_fee: float = float(monthly_loan_fee1.get())
+         try:
+            monthly_sub_fee: float = float(monthly_sub_fee1.get())
+         except ValueError:
+            monthly_sub_fee1.delete(0, tk.END)
+            monthly_sub_fee1.insert(0, '0')
+            monthly_sub_fee = 0
+         try:
+            monthly_loan_fee: float = float(monthly_loan_fee1.get())
+         except ValueError:
+            monthly_loan_fee1.delete(0, tk.END)
+            monthly_loan_fee1.insert(0, '0')
+            monthly_loan_fee = 0
          
          if monthly_income < 100:
             messagebox.showerror('Invalid Input', 'Make sure your salary is valid or above 100')
@@ -114,11 +128,15 @@ def main() -> None:
             messagebox.showerror('Invalid Input', 'Make sure your tax rate is valid and within range from 0 to 50')
             return
          
-      except ValueError:
+         
+      except ValueError as e:
+         print (e)
          messagebox.showerror('Data type error', 'Please enter valid numbers in the input boxes!')
          return None
       
-      result_window(monthly_income, tax_rate, current_currency, main_window, monthly_sub_fee, monthly_loan_fee)
+      else:
+         result_window(monthly_income, tax_rate, current_currency, main_window, monthly_sub_fee, monthly_loan_fee)
+      
    calc_start = Button(frame2, text='Take me to the Calculator',  command=checkval)
    calc_start.pack()
    calc_start.config(font=('font', 12))
@@ -134,7 +152,7 @@ def main() -> None:
    guidance.pack(pady=[10,0], fill='x')
    guidance.config(font=('Font', 15))
    guidance_description = Label(frame3, text='''
-   1. In box with Monthly Salary please enter real or aproximate value to yor earning.
+   1. In box with Monthly Salary please enter real or aproximate value to your earning.
    2. In box with tax rate enter a number before the '%' corresponding with your state or country.
    3. After filling above boxes procced to calculation.
    ''', bg='darkgrey', font=('font', 9) )
