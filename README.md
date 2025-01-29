@@ -9,15 +9,15 @@ Soo I've made a list what to do or what try to do.
 
 ## Here's the list:
 
-- [ ] Use any framework to build a GUI which will contain:
+- [X] Use any framework to build a GUI which will contain:
      - [X] Menu
           - [X] Exit button 
      - [X] Output Window
           - [X] Possibility of returning to menu
-     - [ ] Make the GUI look like not from 1990
+     - [X] Make the GUI look like not from 1990
 		- [X] Center elements within windows
 		- [X] Choose eye-friendly colors
-		- [ ] Set the size of text big enough for larger resolutions ex. 1080x720
+		- [X] Set the size of text big enough for larger resolutions ex. 1080x720
 
 - [X] Make sure that app won't crash whenever data type don't match the right one
 
