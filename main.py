@@ -7,17 +7,18 @@ def main() -> None:
    main_window = tk.Tk()
    main_window.title('Financial Calculator')
 
-   win_h = 720
-   win_w = 1080
    screen_w = main_window.winfo_screenwidth()
    screen_h = main_window.winfo_screenheight()
 
-   x_cord = int((screen_w/2) - (win_w/2))
-   y_cord = int((screen_h/2) - (win_h/2))
+   win_h = int(screen_h / 2)
+   win_w = int(screen_w / 2) - 200
+
+
+   x_cord = int((screen_w / 2) - (win_w / 2))
+   y_cord = int((screen_h / 2) - (win_h / 2))
 
    main_window.geometry("{}x{}+{}+{}".format(win_w, win_h, x_cord, y_cord))
-
-   main_window.resizable(False,False)
+   main_window.resizable(False, False)
 
    frame1 = Frame(main_window,relief=RAISED, name='header')
    frame1.pack(fill='x')
@@ -26,7 +27,7 @@ def main() -> None:
    frame2 = Frame(main_window,relief=RAISED, name='body-left')
    frame2.pack(side='left', padx=120, fill='both')
    frame4 = Frame(main_window,relief=RAISED, name='body-right')
-   frame4.pack(side='left', padx=120, fill='both')
+   frame4.pack(side='right', padx=120, fill='both')
 
    def on_entry_click1(event):
       if monthly_income1.get() == 'Enter your monthly salary':
@@ -153,18 +154,19 @@ def main() -> None:
    Multi_Box.pack()
    Multi_Box.config(font=('font', 12))
 
-   guidance = Label(frame3, text='Introduction', bg='darkgrey', font='Arial')
-   guidance.pack(pady=[10,0], fill='x')
+   guidance = Label(frame3, text='Step-By-Step', bg='darkgrey', font='Arial')
+   guidance.pack(pady=[5,0], fill='x')
    guidance.config(font=('Font', 15))
    guidance_description = Label(frame3, text='''
-   1. In box with Monthly Salary please enter real or aproximate value to your earning.
-   2. In box with tax rate enter a number before the '%' corresponding with your state or country.
-   3. After filling above boxes procced to calculation.
-   ''', bg='darkgrey', font=('font', 9) )
+1.Enter your monthly gross amount to the box (It can be real or aproximate).
+2.Enter the tax rate to the box based on your state or country.
+3.If you want to include optional fees you can add it on the right side.
+4.Choose the currency from the list beneath the "Calculate" button.
+5.Proceed to calculation by pressing the button "Calculate". 
+   ''', bg='darkgrey', font=('Arial', 9) )
    guidance_description.pack(fill='x')
    guidance_description.config(font=('Font', 12))
    
-   main_window.eval('tk::PlaceWindow . center')
    main_window.mainloop() #   creates visual window
 
 

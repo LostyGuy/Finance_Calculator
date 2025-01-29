@@ -16,7 +16,7 @@ def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_wi
     calc_window.protocol("WM_DELETE_WINDOW",on_close)
     
     win_h = 720
-    win_w = 1280
+    win_w = 1080
     screen_w = calc_window.winfo_screenwidth()
     screen_h = calc_window.winfo_screenheight()
 
@@ -25,7 +25,7 @@ def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_wi
 
     calc_window.geometry("{}x{}+{}+{}".format(win_w, win_h, x_cord, y_cord))
     calc_window.resizable(False,False)
-    main_window.eval(f'tk::PlaceWindow {str(calc_window)} center')
+    #main_window.eval(f'tk::PlaceWindow {str(calc_window)} center')
     
     MI, TR, MT, MNI, MF, MNIF, YS, YTP, YNI, YF, YNIF = calculate_finances(monthly_income, tax_rate, current_currency, monthly_sub_fee, monthly_loan_fee)
     
