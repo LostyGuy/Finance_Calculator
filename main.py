@@ -84,14 +84,14 @@ def main() -> None:
    tax_rate1.config(font=('Font', 15))
 
    monthly_sub_fee1 = Entry(frame4, width=25, justify='center')
-   monthly_sub_fee1.insert(0, 'Enter your monthly subscription fee')
+   monthly_sub_fee1.insert(0, 'Enter your total monthly subscription expenses')
    monthly_sub_fee1.bind("<FocusIn>", on_entry_click3)
    monthly_sub_fee1.bind("<FocusOut>", on_focus_out3)
    monthly_sub_fee1.pack(pady=[10,0])
    monthly_sub_fee1.config(font=('Font', 15))
 
    monthly_loan_fee1 = Entry(frame4, width=25, justify='center')
-   monthly_loan_fee1.insert(0, 'Enter your monthly loan fee')
+   monthly_loan_fee1.insert(0, 'Enter your monthly loan installment')
    monthly_loan_fee1.bind("<FocusIn>", on_entry_click4)
    monthly_loan_fee1.bind("<FocusOut>", on_focus_out4)
    monthly_loan_fee1.pack(pady=[0,10])
