@@ -48,21 +48,21 @@ def main() -> None:
          tax_rate1.configure(foreground="gray")
    
    def on_entry_click3(event):
-      if monthly_sub_fee1.get() == 'Enter your monthly subscription fee':
+      if monthly_sub_fee1.get() == 'Enter your total monthly subscription expenses':
          monthly_sub_fee1.delete(0, tk.END)
          monthly_sub_fee1.configure(foreground="black")
    def on_focus_out3(event):
       if monthly_sub_fee1.get() == "":
-         monthly_sub_fee1.insert(0, 'Enter your monthly subscription fee')
+         monthly_sub_fee1.insert(0, 'Enter your total monthly subscription expenses')
          monthly_sub_fee1.configure(foreground="gray")
    
    def on_entry_click4(event):
-      if monthly_loan_fee1.get() == 'Enter your monthly loan fee':
+      if monthly_loan_fee1.get() == 'Enter your monthly loan installment':
          monthly_loan_fee1.delete(0, tk.END)
          monthly_loan_fee1.configure(foreground="black")
    def on_focus_out4(event):
       if monthly_loan_fee1.get() == "":
-         monthly_loan_fee1.insert(0, 'Enter your monthly loan fee')
+         monthly_loan_fee1.insert(0, 'Enter your monthly loan installment')
          monthly_loan_fee1.configure(foreground="gray")
 
    title = Label(frame1, text='Welcome to the Calculator', bg='lightblue')
@@ -74,7 +74,7 @@ def main() -> None:
    monthly_income1.bind("<FocusIn>", on_entry_click1)
    monthly_income1.bind("<FocusOut>", on_focus_out1)
    monthly_income1.pack(pady=[10,0])
-   monthly_income1.config(font=('Font', 15), justify='center')
+   monthly_income1.config(font=('Font', 15))
 
    tax_rate1 = Entry(frame2, width=25, justify='center')
    tax_rate1.insert(0, 'Enter your tax rate')
@@ -83,14 +83,14 @@ def main() -> None:
    tax_rate1.pack(pady=[0,10])
    tax_rate1.config(font=('Font', 15))
 
-   monthly_sub_fee1 = Entry(frame4, width=25, justify='center')
+   monthly_sub_fee1 = Entry(frame4, width=40, justify='center')
    monthly_sub_fee1.insert(0, 'Enter your total monthly subscription expenses')
    monthly_sub_fee1.bind("<FocusIn>", on_entry_click3)
    monthly_sub_fee1.bind("<FocusOut>", on_focus_out3)
    monthly_sub_fee1.pack(pady=[10,0])
    monthly_sub_fee1.config(font=('Font', 15))
 
-   monthly_loan_fee1 = Entry(frame4, width=25, justify='center')
+   monthly_loan_fee1 = Entry(frame4, width=40, justify='center')
    monthly_loan_fee1.insert(0, 'Enter your monthly loan installment')
    monthly_loan_fee1.bind("<FocusIn>", on_entry_click4)
    monthly_loan_fee1.bind("<FocusOut>", on_focus_out4)
