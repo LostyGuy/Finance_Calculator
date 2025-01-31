@@ -25,14 +25,13 @@ def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_wi
 
     calc_window.geometry("{}x{}+{}+{}".format(win_w, win_h, x_cord, y_cord))
     calc_window.resizable(False,False)
-    #main_window.eval(f'tk::PlaceWindow {str(calc_window)} center')
     
     MI, TR, MT, MNI, MF, MNIF, YS, YTP, YNI, YF, YNIF = calculate_finances(monthly_income, tax_rate, current_currency, monthly_sub_fee, monthly_loan_fee)
     
     main_window.withdraw()
 
     frame_calc_1 = Frame(calc_window, relief=RAISED, bg='lightgrey')
-    frame_calc_1.pack(fill='x')
+    frame_calc_1.pack(fill='x',pady=10)
     frame_calc_2 = Frame(calc_window, relief=RAISED, bg='lightgrey')
     frame_calc_2.pack(fill='x')
     frame_calc_3 = Frame(calc_window, relief=RAISED, bg='lightgrey')

@@ -10,9 +10,8 @@ def main() -> None:
    screen_w = main_window.winfo_screenwidth()
    screen_h = main_window.winfo_screenheight()
 
-   win_h = int(screen_h / 2)
-   win_w = int(screen_w / 2) - 200
-
+   win_h = int(screen_h * 0.4)
+   win_w = int(screen_w * 0.4)
 
    x_cord = int((screen_w / 2) - (win_w / 2))
    y_cord = int((screen_h / 2) - (win_h / 2))
@@ -25,9 +24,9 @@ def main() -> None:
    frame3 = Frame(main_window,relief=RAISED, name='description')
    frame3.pack(fill='x', side='top')
    frame2 = Frame(main_window,relief=RAISED, name='body-left')
-   frame2.pack(side='left', padx=120, fill='both')
+   frame2.pack(side='left', padx=60, fill='both')
    frame4 = Frame(main_window,relief=RAISED, name='body-right')
-   frame4.pack(side='right', padx=120, fill='both')
+   frame4.pack(side='right', padx=60, fill='both')
 
    def on_entry_click1(event):
       if monthly_income1.get() == 'Enter your monthly salary':
@@ -69,33 +68,33 @@ def main() -> None:
    title.pack(fill='x')
    title.config(font=('Font', 35))
 
-   monthly_income1 = Entry(frame2, width=25, justify='center')
+   monthly_income1 = Entry(frame2, width=int(win_w * 0.025), justify='center')
    monthly_income1.insert(0, 'Enter your monthly salary')
    monthly_income1.bind("<FocusIn>", on_entry_click1)
    monthly_income1.bind("<FocusOut>", on_focus_out1)
    monthly_income1.pack(pady=[10,0])
    monthly_income1.config(font=('Font', 15))
 
-   tax_rate1 = Entry(frame2, width=25, justify='center')
+   tax_rate1 = Entry(frame2, width=int(win_w * 0.025), justify='center')
    tax_rate1.insert(0, 'Enter your tax rate')
    tax_rate1.bind("<FocusIn>", on_entry_click2)
    tax_rate1.bind("<FocusOut>", on_focus_out2)
    tax_rate1.pack(pady=[0,10])
    tax_rate1.config(font=('Font', 15))
 
-   monthly_sub_fee1 = Entry(frame4, width=40, justify='center')
+   monthly_sub_fee1 = Entry(frame4, width=int(win_w * 0.039), justify='center')
    monthly_sub_fee1.insert(0, 'Enter your total monthly subscription expenses')
    monthly_sub_fee1.bind("<FocusIn>", on_entry_click3)
    monthly_sub_fee1.bind("<FocusOut>", on_focus_out3)
    monthly_sub_fee1.pack(pady=[10,0])
-   monthly_sub_fee1.config(font=('Font', 15))
+   monthly_sub_fee1.config(font=('Font', 14))
 
-   monthly_loan_fee1 = Entry(frame4, width=40, justify='center')
+   monthly_loan_fee1 = Entry(frame4, width=int(win_w * 0.039), justify='center')
    monthly_loan_fee1.insert(0, 'Enter your monthly loan installment')
    monthly_loan_fee1.bind("<FocusIn>", on_entry_click4)
    monthly_loan_fee1.bind("<FocusOut>", on_focus_out4)
    monthly_loan_fee1.pack(pady=[0,10])
-   monthly_loan_fee1.config(font=('Font', 15))
+   monthly_loan_fee1.config(font=('Font', 14))
 
    opt = Label(frame4, text='⬆ Optional Choice ⬆', bg='darkgrey', font='Arial')
    opt.pack(pady=[10,0])
@@ -163,12 +162,11 @@ def main() -> None:
 3.If you want to include optional fees you can add it on the right side.
 4.Choose the currency from the list beneath the "Calculate" button.
 5.Proceed to calculation by pressing the button "Calculate". 
-   ''', bg='darkgrey', font=('Arial', 9) )
+   ''', bg='darkgrey', font=('Arial', 9))
    guidance_description.pack(fill='x')
    guidance_description.config(font=('Font', 12))
    
    main_window.mainloop() #   creates visual window
-
 
 #   This will prevent script from running if executed from another file, will work only if executed in this file
 
