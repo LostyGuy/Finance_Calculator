@@ -64,7 +64,7 @@ def main() -> None:
          monthly_loan_fee1.insert(0, 'Enter your monthly loan installment')
          monthly_loan_fee1.configure(foreground="gray")
 
-   title = Label(frame1, text='Welcome to the Calculator', bg='lightblue')
+   title = Label(frame1, text='Welcome to the Financial Calculator', bg='lightblue')
    title.pack(fill='x')
    title.config(font=('Font', 35))
 
