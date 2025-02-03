@@ -3,7 +3,7 @@ from other_modules import result_window
 
 #   Begining of TKinter Window  #
 def main() -> None:
-
+   
    main_window = tk.Tk()
    main_window.title('Financial Calculator')
 
@@ -28,7 +28,7 @@ def main() -> None:
    frame4 = Frame(main_window,relief=RAISED, name='body-right')
    frame4.pack(side='right', padx=(win_h / 12), fill='both')
          
-   def on_entry_click(event, id: int) -> None :
+   def on_entry_click(event, id: int) -> None:
       match id:
          case 1:
             if monthly_income1.get() == 'Enter your monthly salary':
@@ -166,6 +166,11 @@ def main() -> None:
    ''', bg='darkgrey')
    guidance_description.pack(fill='x')
    guidance_description.config(font=('Font', int(win_h / 40)))
+
+   def on_close() -> None:
+      if messagebox.askokcancel("Quit", "Do you want to leave?"):
+         exit()
+   main_window.protocol("WM_DELETE_WINDOW",on_close)
    
    main_window.mainloop() #   creates visual window
 

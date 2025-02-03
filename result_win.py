@@ -2,18 +2,12 @@ from modules import *
 from other_modules import calculate_finances
 
 def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_window, monthly_sub_fee: int, monthly_loan_fee: int) -> None:
-
+    
     monthly_income: float = float(monthly_income1)
     tax_rate: float = float(tax_rate1)
     current_currency: str = currency
 
     calc_window = Toplevel(main_window)
-    
-    def on_close():
-        if messagebox.askokcancel("Quit", "Do you want to leave?"):
-            exit()
-    
-    calc_window.protocol("WM_DELETE_WINDOW",on_close)
     
     screen_w = main_window.winfo_screenwidth()
     screen_h = main_window.winfo_screenheight()
@@ -26,6 +20,11 @@ def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_wi
 
     calc_window.geometry("{}x{}+{}+{}".format(win_w, win_h, x_cord, y_cord))
     calc_window.resizable(False,False)
+    
+    def on_close() -> None:
+        if messagebox.askokcancel("Quit", "Do you want to leave?"):
+            exit()
+    calc_window.protocol("WM_DELETE_WINDOW",on_close)
     
     MI, TR, MT, MNI, MF, MNIF, YS, YTP, YNI, YF, YNIF = calculate_finances(monthly_income, tax_rate, current_currency, monthly_sub_fee, monthly_loan_fee)
     
