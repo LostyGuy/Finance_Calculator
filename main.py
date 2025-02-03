@@ -12,7 +12,6 @@ def main() -> None:
 
    win_h = int(screen_h * 0.4)
    win_w = int(screen_w * 0.4)
-   print(win_h, win_w)
 
    x_cord = int((screen_w / 2) - (win_w / 2))
    y_cord = int((screen_h / 2) - (win_h / 2))
@@ -28,78 +27,79 @@ def main() -> None:
    frame2.pack(side='left', padx=(win_h / 12), fill='both')
    frame4 = Frame(main_window,relief=RAISED, name='body-right')
    frame4.pack(side='right', padx=(win_h / 12), fill='both')
-
-   def on_entry_click1(event):
-      if monthly_income1.get() == 'Enter your monthly salary':
-         monthly_income1.delete(0, tk.END)
-         monthly_income1.configure(foreground="black")
-   def on_focus_out1(event):
-      if monthly_income1.get() == "":
-         monthly_income1.insert(0, 'Enter your monthly salary')
-         monthly_income1.configure(foreground="gray")
-
-   def on_entry_click2(event):
-      if tax_rate1.get() == 'Enter your tax rate':
-         tax_rate1.delete(0, tk.END)
-         tax_rate1.configure(foreground="black")
-   def on_focus_out2(event):
-      if tax_rate1.get() == "":
-         tax_rate1.insert(0, 'Enter your tax rate')
-         tax_rate1.configure(foreground="gray")
-   
-   def on_entry_click3(event):
-      if monthly_sub_fee1.get() == 'Enter your total monthly subscription expenses':
-         monthly_sub_fee1.delete(0, tk.END)
-         monthly_sub_fee1.configure(foreground="black")
-   def on_focus_out3(event):
-      if monthly_sub_fee1.get() == "":
-         monthly_sub_fee1.insert(0, 'Enter your total monthly subscription expenses')
-         monthly_sub_fee1.configure(foreground="gray")
-   
-   def on_entry_click4(event):
-      if monthly_loan_fee1.get() == 'Enter your monthly loan installment':
-         monthly_loan_fee1.delete(0, tk.END)
-         monthly_loan_fee1.configure(foreground="black")
-   def on_focus_out4(event):
-      if monthly_loan_fee1.get() == "":
-         monthly_loan_fee1.insert(0, 'Enter your monthly loan installment')
-         monthly_loan_fee1.configure(foreground="gray")
-
+         
+   def on_entry_click(event, id: int) -> None :
+      match id:
+         case 1:
+            if monthly_income1.get() == 'Enter your monthly salary':
+               monthly_income1.delete(0, tk.END)
+               monthly_income1.configure(foreground="black")
+         case 2:
+            if tax_rate1.get() == 'Enter your tax rate':
+               tax_rate1.delete(0, tk.END)
+               tax_rate1.configure(foreground="black")
+         case 3:
+            if monthly_sub_fee1.get() == 'Enter your total monthly subscription expenses':
+               monthly_sub_fee1.delete(0, tk.END)
+               monthly_sub_fee1.configure(foreground="black")
+         case 4:
+            if monthly_loan_fee1.get() == 'Enter your monthly loan installment':
+               monthly_loan_fee1.delete(0, tk.END)
+               monthly_loan_fee1.configure(foreground="black")
+   def on_focus_out(event, id: int) -> None:
+      match id:
+         case 1:
+            if monthly_income1.get() == "":
+               monthly_income1.insert(0, 'Enter your monthly salary')
+               monthly_income1.configure(foreground="gray")
+         case 2:
+            if tax_rate1.get() == "":
+               tax_rate1.insert(0, 'Enter your tax rate')
+               tax_rate1.configure(foreground="gray")
+         case 3:
+            if monthly_sub_fee1.get() == "":
+               monthly_sub_fee1.insert(0, 'Enter your total monthly subscription expenses')
+               monthly_sub_fee1.configure(foreground="gray")
+         case 4:
+            if monthly_loan_fee1.get() == "":
+               monthly_loan_fee1.insert(0, 'Enter your monthly loan installment')
+               monthly_loan_fee1.configure(foreground="gray")
+            
    title = Label(frame1, text='Welcome to the Financial Calculator', bg='lightblue')
    title.pack(fill='x')
-   title.config(font=('Font', int(win_h / 14.4)))
+   title.config(font=('Arial', int(win_h / 14.4)))
 
    monthly_income1 = Entry(frame2, width=int(win_w * 0.035), justify='center')
    monthly_income1.insert(0, 'Enter your monthly salary')
-   monthly_income1.bind("<FocusIn>", on_entry_click1)
-   monthly_income1.bind("<FocusOut>", on_focus_out1)
-   monthly_income1.pack(pady=[10,0])
-   monthly_income1.config(font=('Font', int(win_h / 38)))
+   monthly_income1.bind("<FocusIn>", lambda event: on_entry_click(event, 1))
+   monthly_income1.bind("<FocusOut>", lambda event: on_focus_out(event, 1))
+   monthly_income1.pack(pady=[10, 0])
+   monthly_income1.config(font=('Arial', int(win_h / 38)))
 
    tax_rate1 = Entry(frame2, width=int(win_w * 0.035), justify='center')
    tax_rate1.insert(0, 'Enter your tax rate')
-   tax_rate1.bind("<FocusIn>", on_entry_click2)
-   tax_rate1.bind("<FocusOut>", on_focus_out2)
-   tax_rate1.pack(pady=[0,10])
-   tax_rate1.config(font=('Font', int(win_h / 38)))
+   tax_rate1.bind("<FocusIn>", lambda event: on_entry_click(event, 2))
+   tax_rate1.bind("<FocusOut>", lambda event: on_focus_out(event, 2))
+   tax_rate1.pack(pady=[0, 10])
+   tax_rate1.config(font=('Arial', int(win_h / 38)))
 
    monthly_sub_fee1 = Entry(frame4, width=int(win_w * 0.22), justify='center')
    monthly_sub_fee1.insert(0, 'Enter your total monthly subscription expenses')
-   monthly_sub_fee1.bind("<FocusIn>", on_entry_click3)
-   monthly_sub_fee1.bind("<FocusOut>", on_focus_out3)
-   monthly_sub_fee1.pack(pady=[10,0])
-   monthly_sub_fee1.config(font=('Font', int(win_h / 35)))
+   monthly_sub_fee1.bind("<FocusIn>", lambda event: on_entry_click(event, 3))
+   monthly_sub_fee1.bind("<FocusOut>", lambda event: on_focus_out(event, 3))
+   monthly_sub_fee1.pack(pady=[10, 0])
+   monthly_sub_fee1.config(font=('Arial', int(win_h / 35)))
 
    monthly_loan_fee1 = Entry(frame4, width=int(win_w * 0.22), justify='center')
    monthly_loan_fee1.insert(0, 'Enter your monthly loan installment')
-   monthly_loan_fee1.bind("<FocusIn>", on_entry_click4)
-   monthly_loan_fee1.bind("<FocusOut>", on_focus_out4)
-   monthly_loan_fee1.pack(pady=[0,10])
-   monthly_loan_fee1.config(font=('Font', int(win_h / 35)))
+   monthly_loan_fee1.bind("<FocusIn>", lambda event: on_entry_click(event, 4))
+   monthly_loan_fee1.bind("<FocusOut>", lambda event: on_focus_out(event, 4))
+   monthly_loan_fee1.pack(pady=[0, 10])
+   monthly_loan_fee1.config(font=('Arial', int(win_h / 35)))
 
    opt = Label(frame4, text='⬆ Optional Choice ⬆', bg='darkgrey', font='Arial')
    opt.pack(pady=[10,0])
-   opt.config(font=('Font', int(win_h / 30)))
+   opt.config(font=('Arial', int(win_h / 30)))
    
    def checkval() -> None:
       try:
@@ -145,18 +145,18 @@ def main() -> None:
       
    calc_start = Button(frame2, text='Calculate',  command=checkval)
    calc_start.pack()
-   calc_start.config(font=('font', int(win_h / 40)))
+   calc_start.config(font=('Arial', int(win_h / 40)))
    
    currency_list : list = ['€','$','£','¥','PLN']
    currency = StringVar(frame2)
    currency.set(currency_list[0])
    Multi_Box = OptionMenu(frame2, currency, *currency_list)
    Multi_Box.pack()
-   Multi_Box.config(font=('font', int(win_h / 45)))
+   Multi_Box.config(font=('Arial', int(win_h / 45)))
 
    guidance = Label(frame3, text='Step-By-Step', bg='darkgrey', font='Arial')
    guidance.pack(pady=[5,0], fill='x')
-   guidance.config(font=('Font', int(win_h / 30)))
+   guidance.config(font=('Arial', int(win_h / 30)))
    guidance_description = Label(frame3, text='''
 1.Enter your monthly gross amount to the box (It can be real or aproximate).
 2.Enter the tax rate to the box based on your state or country.
