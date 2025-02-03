@@ -40,49 +40,50 @@ def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_wi
 
     label1 = Label(frame_calc_2, text=MI)
     label1.pack()
-    label1.config(font=('Font', f_size))
+    label1.config(font=('Arial', f_size))
 
     label2 = Label(frame_calc_2, text=TR)
     label2.pack()  
-    label2.config(font=('Font', f_size)) 
+    label2.config(font=('FoArialnt', f_size)) 
 
     label3 = Label(frame_calc_2, text=MT)
     label3.pack()
-    label3.config(font=('Font', f_size))
+    label3.config(font=('Arial', f_size))
 
     label4 = Label(frame_calc_2, text=MNI)
     label4.pack()
-    label4.config(font=('Font', f_size))
+    label4.config(font=('Arial', f_size))
 
     label5 = Label(frame_calc_2, text=MF)
     label5.pack()
-    label5.config(font=('Font', f_size))
+    label5.config(font=('Arial', f_size))
 
     label6 = Label(frame_calc_2, text=MNIF)
     label6.pack()
-    label6.config(font=('Font', f_size))
+    label6.config(font=('Arial', f_size))
 
     label7 = Label(frame_calc_2, text=YS)
     label7.pack()
-    label7.config(font=('Font', f_size))
+    label7.config(font=('Arial', f_size))
 
     label8 = Label(frame_calc_2, text=YTP)
     label8.pack()
-    label8.config(font=('Font', f_size))
+    label8.config(font=('Arial', f_size))
 
     label9 = Label(frame_calc_2, text=YNI)
     label9.pack()
-    label9.config(font=('Font', f_size))
+    label9.config(font=('Arial', f_size))
 
     label10 = Label(frame_calc_2, text=YF)
     label10.pack()
-    label10.config(font=('Font', f_size))
+    label10.config(font=('Arial', f_size))
 
     label11 = Label(frame_calc_2, text=YNIF)
     label11.pack()
-    label11.config(font=('Font', f_size))
+    label11.config(font=('Arial', f_size))
 
     button1 = Button(frame_calc_3, text='Go back', relief=RAISED, bg='lightgray', command=lambda: [main_window.deiconify(), calc_window.withdraw()])
     button1.pack(side=RIGHT, anchor=S)
+    button1.config(font=('Arial', f_size - 2))
     
     print(frame_calc_2.winfo_height())

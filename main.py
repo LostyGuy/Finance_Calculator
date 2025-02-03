@@ -103,7 +103,8 @@ def main() -> None:
    
    def checkval() -> None:
       try:
-         monthly_income: float = float(monthly_income1.get())
+         monthly_income: float= float(monthly_income1.get())
+         monthly_income: float = float((monthly_income1.get()).replace(",","."))
          tax_rate: float = float(tax_rate1.get())
          current_currency: str = currency.get()
          try:
