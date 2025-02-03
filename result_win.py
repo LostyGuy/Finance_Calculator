@@ -61,6 +61,10 @@ def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_wi
     label6 = Label(frame_calc_2, text=MNIF)
     label6.pack()
     label6.config(font=('Arial', f_size))
+    
+    space = Label(frame_calc_2, text='\n')
+    space.pack()
+    space.config(bg='lightgrey')
 
     label7 = Label(frame_calc_2, text=YS)
     label7.pack()
