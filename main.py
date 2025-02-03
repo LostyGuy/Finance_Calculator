@@ -119,12 +119,9 @@ def main() -> None:
             monthly_loan_fee1.insert(0, 'Enter your monthly loan installment')
             monthly_loan_fee = 0
          
-         if monthly_income < 100:
-            messagebox.showerror('Invalid Input', 'Make sure your salary is valid or above 100')
+         if monthly_income < 100 or monthly_income > 100_000_000:
+            messagebox.showerror('Invalid Input', 'Make sure your salary is valid or in range from 100 to 100 milion')
             return 
-         elif monthly_income > 100_000_000:
-            messagebox.showerror('Invalid Input', "We don't support salaries greater than 100 million")
-            return
          elif tax_rate < 0 or tax_rate > 50:
             messagebox.showerror('Invalid Input', 'Make sure your tax rate is valid and within range from 0 to 50')
             return
