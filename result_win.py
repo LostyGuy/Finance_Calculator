@@ -34,7 +34,7 @@ def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_wi
     frame_calc_1 = Frame(calc_window, relief=RAISED, bg='lightgrey')
     frame_calc_1.pack(fill='x',pady=10)
     frame_calc_2 = Frame(calc_window, relief=RAISED, bg='lightgrey')
-    frame_calc_2.pack(fill='x')
+    frame_calc_2.pack(fill='both', expand=True)
     frame_calc_3 = Frame(calc_window, relief=RAISED, bg='lightgrey')
     frame_calc_3.pack(fill='x')
 
@@ -84,3 +84,5 @@ def result_window(monthly_income1: float, tax_rate1: int, currency: str, main_wi
 
     button1 = Button(frame_calc_3, text='Go back', relief=RAISED, bg='lightgray', command=lambda: [main_window.deiconify(), calc_window.withdraw()])
     button1.pack(side=RIGHT, anchor=S)
+    
+    print(frame_calc_2.winfo_height())
