@@ -25,9 +25,9 @@ def main() -> None:
    frame3 = Frame(main_window,relief=RAISED, name='description')
    frame3.pack(fill='x', side='top')
    frame2 = Frame(main_window,relief=RAISED, name='body-left')
-   frame2.pack(side='left', padx=60, fill='both')
+   frame2.pack(side='left', padx=(win_h / 12), fill='both')
    frame4 = Frame(main_window,relief=RAISED, name='body-right')
-   frame4.pack(side='right', padx=60, fill='both')
+   frame4.pack(side='right', padx=(win_h / 12), fill='both')
 
    def on_entry_click1(event):
       if monthly_income1.get() == 'Enter your monthly salary':
@@ -74,28 +74,28 @@ def main() -> None:
    monthly_income1.bind("<FocusIn>", on_entry_click1)
    monthly_income1.bind("<FocusOut>", on_focus_out1)
    monthly_income1.pack(pady=[10,0])
-   monthly_income1.config(font=('Font', int(win_h / 30)))
+   monthly_income1.config(font=('Font', int(win_h / 38)))
 
    tax_rate1 = Entry(frame2, width=int(win_w * 0.035), justify='center')
    tax_rate1.insert(0, 'Enter your tax rate')
    tax_rate1.bind("<FocusIn>", on_entry_click2)
    tax_rate1.bind("<FocusOut>", on_focus_out2)
    tax_rate1.pack(pady=[0,10])
-   tax_rate1.config(font=('Font', int(win_h / 30)))
+   tax_rate1.config(font=('Font', int(win_h / 38)))
 
-   monthly_sub_fee1 = Entry(frame4, width=int(win_w * 0.1), justify='center')
+   monthly_sub_fee1 = Entry(frame4, width=int(win_w * 0.22), justify='center')
    monthly_sub_fee1.insert(0, 'Enter your total monthly subscription expenses')
    monthly_sub_fee1.bind("<FocusIn>", on_entry_click3)
    monthly_sub_fee1.bind("<FocusOut>", on_focus_out3)
    monthly_sub_fee1.pack(pady=[10,0])
-   monthly_sub_fee1.config(font=('Font', int(win_h / 40)))
+   monthly_sub_fee1.config(font=('Font', int(win_h / 35)))
 
-   monthly_loan_fee1 = Entry(frame4, width=int(win_w * 0.1), justify='center')
+   monthly_loan_fee1 = Entry(frame4, width=int(win_w * 0.22), justify='center')
    monthly_loan_fee1.insert(0, 'Enter your monthly loan installment')
    monthly_loan_fee1.bind("<FocusIn>", on_entry_click4)
    monthly_loan_fee1.bind("<FocusOut>", on_focus_out4)
    monthly_loan_fee1.pack(pady=[0,10])
-   monthly_loan_fee1.config(font=('Font', int(win_h / 40)))
+   monthly_loan_fee1.config(font=('Font', int(win_h / 35)))
 
    opt = Label(frame4, text='⬆ Optional Choice ⬆', bg='darkgrey', font='Arial')
    opt.pack(pady=[10,0])
@@ -110,13 +110,13 @@ def main() -> None:
             monthly_sub_fee: float = float(monthly_sub_fee1.get())
          except ValueError:
             monthly_sub_fee1.delete(0, tk.END)
-            monthly_sub_fee1.insert(0, '0')
+            monthly_sub_fee1.insert(0, 'Enter your total monthly subscription expenses')
             monthly_sub_fee = 0
          try:
             monthly_loan_fee: float = float(monthly_loan_fee1.get())
          except ValueError:
             monthly_loan_fee1.delete(0, tk.END)
-            monthly_loan_fee1.insert(0, '0')
+            monthly_loan_fee1.insert(0, 'Enter your monthly loan installment')
             monthly_loan_fee = 0
          
          if monthly_income < 100:
