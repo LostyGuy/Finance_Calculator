@@ -23,10 +23,13 @@ def main() -> None:
    frame1.pack(fill='x')
    frame3 = Frame(main_window,relief=RAISED, name='description')
    frame3.pack(fill='x', side='top')
+   space = Frame(main_window,relief=RAISED, name='space')
+   space.pack(fill='x')
    frame2 = Frame(main_window,relief=RAISED, name='body-left')
    frame2.pack(side='left', padx=(win_h / 12), fill='both')
    frame4 = Frame(main_window,relief=RAISED, name='body-right')
    frame4.pack(side='right', padx=(win_h / 12), fill='both')
+   
          
    def on_entry_click(event, id: int) -> None:
       match id:
@@ -46,6 +49,7 @@ def main() -> None:
             if monthly_loan_fee1.get() == 'Enter your monthly loan installment':
                monthly_loan_fee1.delete(0, tk.END)
                monthly_loan_fee1.configure(foreground="black")
+
    def on_focus_out(event, id: int) -> None:
       match id:
          case 1:
@@ -68,6 +72,9 @@ def main() -> None:
    title = Label(frame1, text='Welcome to the Financial Calculator', bg='lightblue')
    title.pack(fill='x')
    title.config(font=('Arial', int(win_h / 14.4)))
+
+   plainspace = Label(space, height=int(win_h /150), text='  ')
+   plainspace.pack()
 
    monthly_income1 = Entry(frame2, width=int(win_w * 0.035), justify='center')
    monthly_income1.insert(0, 'Enter your monthly salary')
@@ -103,18 +110,17 @@ def main() -> None:
    
    def checkval() -> None:
       try:
-         monthly_income: float= float(monthly_income1.get())
          monthly_income: float = float((monthly_income1.get()).replace(",","."))
-         tax_rate: float = float(tax_rate1.get())
+         tax_rate: float = float((tax_rate1.get()).replace(",","."))
          current_currency: str = currency.get()
          try:
-            monthly_sub_fee: float = float(monthly_sub_fee1.get())
+            monthly_sub_fee: float = float((monthly_sub_fee1.get()).replace(",","."))
          except ValueError:
             monthly_sub_fee1.delete(0, tk.END)
             monthly_sub_fee1.insert(0, 'Enter your total monthly subscription expenses')
             monthly_sub_fee = 0
          try:
-            monthly_loan_fee: float = float(monthly_loan_fee1.get())
+            monthly_loan_fee: float = float((monthly_loan_fee1.get()).replace(",","."))
          except ValueError:
             monthly_loan_fee1.delete(0, tk.END)
             monthly_loan_fee1.insert(0, 'Enter your monthly loan installment')
@@ -131,12 +137,12 @@ def main() -> None:
          
       except ValueError:
           try:
-             monthly_income: float = float(monthly_income1.get())
+             monthly_income: float = float((monthly_income1.get()).replace(",","."))
           except ValueError:
             messagebox.showerror('Invalid Input', 'Make sure your salary is a number')
             return
           try:
-             tax_rate: float = float(tax_rate1.get())
+             tax_rate: float = float((tax_rate1.get()).replace(",","."))
           except ValueError:
             messagebox.showerror('Invalid Input', 'Make sure your tax rate is a number')
             return

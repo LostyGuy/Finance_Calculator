@@ -17,7 +17,7 @@ def calculate_finances(monthly_income1: float, tax_rate1: float, currency: str, 
 #   |,.2f| Will round the number to two places after point
 
     MI = (f'Montly income: {currency} {monthly_income1: ,.2f}')
-    TR = (f'Tax rate: {tax_rate1:,.0f}%')
+    TR = (f'Tax rate: {tax_rate1:,.2f}%')
     MT = (f'Monthly tax: {currency} {monthly_tax:,.2f}')
     MNI = (f'Monthly net income: {currency} {monthly_net_income:,.2f}')
     MF = (f'Monthly fees: {currency} {monthly_sub_loan_fee:,.2f}')
