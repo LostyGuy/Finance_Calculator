@@ -8,14 +8,14 @@ then outputting monthly and yearly tax to pay and how much money will you finall
 
 - [X] Use any framework to build a GUI which will contain:
      - [X] Menu
-	 	  - [X] Currency Menu
-          - [X] Exit button 
+	 	       - [X] Currency Menu
+           - [X] Exit button 
      - [X] Output Window
-          - [X] Possibility of returning to menu
+           - [X] Possibility of returning to menu
      - [X] Make the GUI look like not from 1990
-		- [X] Center elements within windows
-		- [X] Choose eye-friendly colors
-		- [X] Set the size of text big enough for larger resolutions ex. 1080x720
+		       - [X] Center elements within windows
+		       - [X] Choose eye-friendly colors
+		       - [X] Set the size of text big enough for larger resolutions ex. 1080x720
 
 - [X] Make sure that app won't crash whenever data type don't match the right one
 
